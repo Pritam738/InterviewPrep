@@ -13,13 +13,34 @@
   /   \      \
  4     5     6    <-- leaves 
 
- #Tree Traversals (Inorder, Preorder and Postorder)
+ # Tree Traversals (Inorder, Preorder and Postorder)
 
 	(a) Inorder (Left, Root, Right) : 4 2 5 1 3 6
 	(b) Preorder (Root, Left, Right) : 1 2 4 5 3 6
 	(c) Postorder (Left, Right, Root) : 4 5 2 6 3 1 
 
- #Binary Tree:
+ # Clockwise Spiral Traversal of Binary Tree
+
+ 			  tree
+		      ----
+		       1    <-- root
+		     /    \
+		    2       3  
+		  /   \    /  \
+		 4     5  6     7    <-- leaves 
+	the circular clockwise spiral order traversal will be 1 7 6 5 4 2 3 
+
+	eg:
+	                    10
+                     /     \
+                   12       13
+                          /     \
+                       14       15
+                      /   \     /  \
+                     21   22   23   24
+        res: 10 24 23 22 21 12 13 14 15
+
+ # Binary Tree:
  	A tree whose elements have at most 2 children is called a binary tree. Since each element in a binary tree can have only 2 children, we typically name them the left and right child.
 
 	First Simple Tree
