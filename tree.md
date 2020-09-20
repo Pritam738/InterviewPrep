@@ -1,6 +1,6 @@
-##Trees are linear data structures, trees are hierarchical data structures.
+## Trees are linear data structures, trees are hierarchical data structures.
 
-##Tree Vocabulary: 
+## Tree Vocabulary: 
 	The topmost node is called root of the tree.
 	Elements that are directly under an element are called its children.
 	The element directly above something is called its parent
@@ -41,8 +41,8 @@
                      21   22   23   24
         res: 10 24 23 22 21 12 13 14 15
 
- ##verticle order taversing 
- #level order traversing 
+ ## verticle order taversing 
+ # level order traversing 
      	               
      	               10
                      /     \
@@ -54,7 +54,7 @@
 
         top to bottom left to right 12 12 13 14 15 21 22 23 24
 
- #bottom view of the binary tree
+ # bottom view of the binary tree
     hd horizontal distance; left <- parent hd - 1; right <- parent hd + 1
     use level order traversing for table creation pick up the last values of the hash table 
 
@@ -122,11 +122,11 @@
 			None None 
 		'''
 
-##Properties of Binary Tree.
+## Properties of Binary Tree.
 	The maximum number of nodes at level ‘l’ of a binary tree is 2l.
 	Maximum number of nodes in a binary tree of height ‘h’ is 2h – 1.
 
-##The following are common types of Binary Trees.
+## The following are common types of Binary Trees.
 	Full Binary Tree A Binary Tree is a full binary tree if every node has 0 or 2 children
         Complete Binary Tree: A Binary Tree is a complete Binary Tree if all the levels are completely filled except possibly the last level and the last level has all keys as left as possible
 	Perfect Binary Tree A Binary tree is a Perfect Binary Tree in which all the internal nodes have two children and all leaf nodes are at the same level.
