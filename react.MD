@@ -2,10 +2,13 @@
 React is a JavaScript library for building user interfaces. It is developed by Facebook.
 
 # What are React’s Key Features?
-Virtual DOM
-JSX
-Unidirectional Data Flow
-Server-Side Rendering
+1)Virtual DOM
+
+2)JSX
+
+3)Unidirectional Data Flow
+
+4)Server-Side Rendering
 
 # What is JSX?
 JSX is a Javascript syntax extension that allows us to write HTML in our JavaScript to create React Elements
