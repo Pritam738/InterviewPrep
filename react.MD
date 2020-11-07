@@ -10,7 +10,7 @@ React is a JavaScript library for building user interfaces. It is developed by F
 
 4)Server-Side Rendering
 
-# What is JSX?
+## What is JSX?
 JSX is a Javascript syntax extension that allows us to write HTML in our JavaScript to create React Elements
 
 Babel compiles JSX into React.createElement() calls
@@ -20,7 +20,7 @@ Cleaner code with JSX expressions
 Safer code as the usage of JSX prevents XSS attacks
 
 
-# What is the Virtual DOM?
+## What is the Virtual DOM?
 Manipulating the actual DOM is expensive
 
 Virtual DOM: React makes a virtual representation of the actual DOM in memory
@@ -28,6 +28,13 @@ Virtual DOM: React makes a virtual representation of the actual DOM in memory
 Expected changes are first reflected in an updated version of the Virtual DOM. The updated virtual DOM is compared with its previous version using React’s 
 
 ‘diffing’ algorithm to determine how to best update the real DOM
+
+## What is uni directional data flow ?
+The data flows from the parents to the child and not the other way round. 
+
+- [] What is the benefit of this? 
+
+# Workings of React framework
 
 # Reconciliation
 React provides a declarative API so that you don’t have to worry about exactly what changes on every update. This makes writing applications a lot easier, but it might not be obvious how this is implemented within React.
@@ -43,7 +50,7 @@ The developer can hint at which child elements may be stable across different re
 
 ## The Diffing Algorithm
 
-When diffing two trees, React first compares the two root elements. The behavior is different depending on the types of the root elements.
+When diffing two trees, React first compares the two root elements. The behavior is different depending on the types of the root elements. Such as :
 
 ### Elements Of Different Types
 Whenever the root elements have different types, React will tear down the old tree and build the new tree from scratch. Going from <a> to <img>, or from <Article> to <Comment>, or from <Button> to <div> - any of those will lead to a full rebuild.
@@ -100,7 +107,7 @@ React needs to create an instance in case of Class Component, while it doesn’t
 Class Component: Component implemented using ES6 Classes extending React.Component
 Function Component: Component implemented by a JS function that takes a props argument and returns a React element
 
-## class component
+# class component
 ```
 class ClickCounter extends React.Component {
     constructor(props) {
@@ -124,7 +131,7 @@ class ClickCounter extends React.Component {
     }
 }
 ```
-## function component
+# function component
 
 ```
 const ExampleComponent = (props) => {
@@ -154,19 +161,18 @@ Older third-party libraries might not be compatible with hooks yet
 # Class Components Disadvantages
 Classes add unnecessary confusion for the sake of syntactic sugar²
 Classes lead to a bulky hierarchy tree, especially during code reuse, which results in performance decreases and difficulty testing³
-Class lifecycle methods split up related pieces of code
-
-# What are props and state in React?
-props is the JavaScript object, passed into a Component, that holds the configuration properties¹
-props is immutable by the receiving Component
-state is the JavaScript object, managed within the Component, that holds its internal state.
-Updates to either trigger a re-render
+Class lifecycle methods split up related pieces of code.
 
 # What causes a component to update?
 A re-render of the parent which may entail new Props
 setState()
 (B) forceUpdate() (and that it should be avoided!)
 
+# What are props and state in React?
+props is the JavaScript object, passed into a Component, that holds the configuration properties¹
+props is immutable by the receiving Component
+state is the JavaScript object, managed within the Component, that holds its internal state.
+Updates to either trigger a re-render
 
 # What doessetState() do and how does it work?
 setState() schedules an update to a component’s state object. When state changes, the component responds by re-rendering.
