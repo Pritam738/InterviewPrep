@@ -1,5 +1,5 @@
 # What is React?
-React is a JavaScript library for building user interfaces By Facebook
+React is a JavaScript library for building user interfaces. It is developed by Facebook.
 
 # What are React’s Key Features?
 Virtual DOM
