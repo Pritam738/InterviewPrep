@@ -12,15 +12,22 @@ React is a JavaScript library for building user interfaces. It is developed by F
 
 # What is JSX?
 JSX is a Javascript syntax extension that allows us to write HTML in our JavaScript to create React Elements
+
 Babel compiles JSX into React.createElement() calls
+
 Cleaner code with JSX expressions
+
 Safer code as the usage of JSX prevents XSS attacks
 
 
 # What is the Virtual DOM?
 Manipulating the actual DOM is expensive
+
 Virtual DOM: React makes a virtual representation of the actual DOM in memory
-Expected changes are first reflected in an updated version of the Virtual DOM. The updated virtual DOM is compared with its previous version using React’s ‘diffing’ algorithm to determine how to best update the real DOM
+
+Expected changes are first reflected in an updated version of the Virtual DOM. The updated virtual DOM is compared with its previous version using React’s 
+
+‘diffing’ algorithm to determine how to best update the real DOM
 
 # Reconciliation
 React provides a declarative API so that you don’t have to worry about exactly what changes on every update. This makes writing applications a lot easier, but it might not be obvious how this is implemented within React.
