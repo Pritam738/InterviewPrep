@@ -239,3 +239,157 @@ In the constructor, the state should be initialized andsetState() should not be 
 # What are React Hooks?
 New feature in React 16.8
 Allows function components to use state and other previous class-only features
+
+
+## React Cheat Sheet Full Story
+ 
+A React Element is what gets returned from components. It's an object that virtually describes the DOM nodes that a component represents.
+						Or
+What exactly is a React element? It’s a VIRTUAL element describing a DOM element. It’s what the React.createElement API method returns.
+
+# What Is React?
+React is defined as a JavaScript library for building user interfaces. React is a JavaScript “library”. It is not exactly a “framework”. It is not a complete solution and you will often need to use more libraries with React to form any solution. 
+
+# React’s tree reconciliation?
+Before React, when we needed to work with a browser’s API, which is known as the DOM API, we avoided traversing the DOM tree as much as possible and there is a reason for that. Any operation on the DOM is done in the same single thread that’s responsible for everything else that’s happening in the browser, including reactions to user events like typing, scrolling, resizing, etc.
+Any expensive operation on the DOM means a slow and janky experience for the user.
+React came up with a unique concept to help us do exactly that!
+
+Eg:	document.getElementById('mountNode').innerHTML = `
+ <div>
+   Hello HTML
+ </div>
+`;
+
+
+When we tell React to render a tree of elements in the browser, it first generates a virtual representation of that tree and keeps it around in memory for later.Then it’ll proceed to perform the DOM operations that will make the tree show up in the browser.
+When we tell React to update the tree of elements it previously rendered, it generates a new virtual representation of the updated tree. Now React has 2 versions of the tree in memory!
+To render the updated tree in the browser, React does not discard what has already been rendered. Instead, it will compare the 2 virtual versions of the tree that it has in memory, compute the differences between them, figure out what sub-trees in the main tree need to be updated, and only update these sub-trees in the browser.
+
+ The other reasons why I think React gained its massive popularity:
+Working with the DOM API is hard. React gives developers the ability to work with a “virtual” browser that is friendlier than the real browser. React basically acts like your agent who will do the communication with the DOM on your behalf.
+React is often given the “Just JavaScript” label. So very small learning curve for js Developers.
+Learning React pays off big-time for iOS and Android mobile applications as well. React Native allows you to use your React skills to build native mobile applications. You can even share some logic between your web, iOS, and Android applications.
+
+The ReactDOM.render method and React.createElement method are the core API methods in a React application. In fact, a React web application cannot exist without using both of these methods.
+
+# ReactDOM.render
+This is basically the entry point for a React application into the browser’s DOM. It takes 2 arguments : what to render (This is always a “React element”),  WHERE to render that React element in the browser (This has to be a valid DOM <document object model>node).
+
+# React.createElement
+Instead of working with strings to represent DOM elements. in React we represent DOM elements with objects using calls to the React.createElement method. These objects are known as React elements. React elements are created in memory. To actually make a React element show up in the DOM, we use the ReactDOM.render method which will do many things to figure out the most optimal way to reflect the state of a React element into the actual DOM tree in the browser.  Only used with jsx as browsers don't understand jsx.
+
+# React is all about components
+We define small components and then put them together to form bigger ones. All components small or big are reusable, even across different projects.You can think of components as simple functions, their input is a set of “props” and their output is a description of a UI.
+
+Side effects are the easier concept. A "pure function" is a function that maps its input value(s) into an output value function plus(x, y) { return x + y; }. A "side effect" is any effect other than that return value.
+
+# Why is React named “React” anyway?
+When the state of a React component (which is part of its input) changes, the UI it represents (its output) changes as well.In a React application we don’t do that manually. React will simply react to the state changes and automatically (and efficiently) update the DOM when needed.
+
+A compiler that translates one form of syntax into another is known as a “transpiler”.
+The name of the component has to start with a capital letter. A JSX compiler (like Babel) will consider all names that start with a lowercase letter as names of HTML elements. 
+
+# JSX is not a template language
+Some libraries that deal with HTML provide a template language for it. You write your dynamic views with an “enhanced” HTML syntax that has loops and conditionals. These libraries will then use JavaScript to convert the templates into DOM operations. The DOM operations can then be used in the browser to display the DOM tree described by the enhanced HTML.React eliminates that step. We do not send to the browser a template at all with a React application. We sent it a tree of objects described with the React API. React uses these objects to generate the DOM operations needed to display the desired DOM tree.
+Creating components using classes
+
+a class extends React.Component . A class-based React component has to at least define an instance method named render. You access props as this.props
+Functions vs classes
+
+The only way to make a component “stateful” was to use the class syntax. This has changed with the release of “React Hooks” beginning with React version 16.8, which was released in early 2019.
+
+In a component, state is data we import. Stateful and stateless components have many different names.
+They are also known as:
+– Container vs Presentational components
+– Smart vs Dumb components
+The literal difference is that one has state, and the other doesn’t. That means the stateful components are keeping track of changing data, while stateless components print out what is given to them via props, or they always render the same thing.
+Components vs Elements
+A React Component is a template,This can be either a function or a class
+A React Element is what gets returned from components. It’s an object that virtually describes the DOM nodes that a component represents. React elements are not what you see in the browser. They are just objects.
+What exactly are hooks?
+A hook in a React component is a call to a special function. All hooks functions begin with the word “use”. Some of them can be used to provide a function component with stateful elements (like useState), others can be used to managed side effects (like useEffect) or to cache/memoize functions and objects (like useCallback).
+React hook functions can only be used in function components. You can’t use them in class components.
+Responding to user events
+
+
+You can add an event handler with an “onEvent” property , This could be an onClick, onMouseOver, onScroll, onSubmit, etc.
+eg:onClick={() => console.log('Button clicked')}
+
+# Reading and updating state
+
+To track state updates and trigger virtual DOM diffing and real DOM reconciliation, React needs to be aware of any changes that happen to any state elements that are used within components. The useState hook defines a state element and gives us back a getter and setter for it!
+
+const [count, setCount] = React.useState(0);
+
+useState function returns an array with exactly 2 items. The first item is a value (getter) and the second item is a function (setter).
+The first item “value” can be a string, number, array, or other types to initial value of the state.
+The second item “function” will change the value of the state element when invoked React will re-render the component
+Rendering sibling components
+
+ReactDOM.render([<Button />, <Display />], mountNode);
+Or
+ReactDOM.render(
+ <div>
+   <Button />
+   <Display />
+ </div>,
+ mountNode
+);
+				Or
+react has a special object if you need to enclose multiple adjacent elements like this without introducing a new DOM parent node. You can use React.Fragment:
+ReactDOM.render(
+ <React.Fragment>
+   <Button />
+   <Display />
+ </React.Fragment>,
+ mountNode
+);
+Instead of typing React.Fragment, you can just use an empty tag <></>
+
+# The top-level component
+
+The top-level component is popularly used to manage shared application state and actions because it’s parent to all other components. Be careful about this design because updating a state element on the top-level component means that the whole tree of components will be re-rendered (in memory).
+
+	The super keyword refers to the parent class. It is used to call the constructor of the parent class and to access the parent's properties and methods.
+
+# Why Immutability Is Important?
+There are generally two approaches to changing data. The first approach is to mutate the data by directly changing the data’s values. The second approach is to replace the data with a new copy which has the desired changes.
+
+Data Change with Mutation
+
+var player = {score: 1, name: 'Jeff'}; 
+player.score = 2;
+
+Data Change without Mutation
+
+var player = {score: 1, name: 'Jeff'};
+var newPlayer = Object.assign({}, player, {score: 2});
+The end result is the same but by not mutating (or changing the underlying data) directly, we gain several benefits described below.
+
+
+
+
+# useEffect in action:
+useEffect( () => console.log("mount"), [] );
+useEffect( () => console.log("will update data1"), [ data1 ] );
+useEffect( () => console.log("will update any") );
+useEffect( () => () => console.log("will update data1 or unmount"), [ data1 ] );
+useEffect( () => () => console.log("unmount"), [] );
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+
+
+
+
+
